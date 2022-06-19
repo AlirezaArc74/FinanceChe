@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+body {
+  transform: scale(1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.razi:hover {
+  transform: scale(1.1);
+  /* transform: ; */
+  /* transition: all .2s; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.leaflet-container {
+  width: 100%;
+  height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.my_file {
+  position: abolute;
+  left: 6rem;
+  top: 3rem;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  border: 1px solid black;
+  outline: none;
+  color: transparent;
+  /* width: 100%; */
+  box-sizing: border-box;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.themeAll {
+  background-color: black;
 }

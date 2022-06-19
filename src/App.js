@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import DashbourdLayout from "./pages/DashbourdLayout";
+import NewPurchase from "./pages/NewPurchase";
+import User from "./pages/User";
+import Tags from "./pages/Tags";
+import ExpanseChart from "./pages/ExpanseChart";
+import Cookies from "universal-cookie";
+import { useAllState } from "./UserContext";
 
-function App() {
+const App = () => {
+  // const cookies = new Cookies();
+  // const token = cookies.get("ut");
+
+  const { setLoginToken, loginToken } = useAllState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    const token = cookies.get("ut");
+
+    setLoginToken(token);
+    setLoading(false);
+  }, []);
+
+  if (loading) return <h1>loading...</h1>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/dashbourd" element={<DashbourdLayout />}>
+        <Route path="newpurchase" element={<NewPurchase />} />
+        <Route path="user" element={<User />} />
+        <Route path="tags" element={<Tags />} />
+        <Route path="charts" element={<ExpanseChart />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
+
+//Information: the language of the app is persian
+
+// Project color palette
+// https://coolors.co/palette/d64550-aafac8-33658a-c7ffed-bbc8ca
